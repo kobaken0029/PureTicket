@@ -14,6 +14,7 @@ import click.kobaken.pureticket.R;
 import click.kobaken.pureticket.databinding.FragmentTopBinding;
 import click.kobaken.pureticket.model.UserInfo;
 import click.kobaken.pureticket.view.Navigator;
+import click.kobaken.pureticket.view.adapter.LivePagerAdapter;
 
 public class TopFragment extends Fragment {
     public static final String TAG = TopFragment.class.getSimpleName();
@@ -51,7 +52,8 @@ public class TopFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = DataBindingUtil.bind(view);
-        binding.transactionCard.setOnClickListener(v -> navigator.gotoTransaction());
+        LivePagerAdapter livePagerAdapter = new LivePagerAdapter(getChildFragmentManager());
+        binding.viewPager.setAdapter(livePagerAdapter);
         binding.transactionHistoryCard.setOnClickListener(v -> navigator.gotoTabHost());
         binding.badgeCard.setOnClickListener(v -> navigator.gotoBadgeList());
         binding.rightsCard.setOnClickListener(v -> navigator.gotoRightsList());

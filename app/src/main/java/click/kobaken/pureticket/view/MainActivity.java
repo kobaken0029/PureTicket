@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements Navigator {
 
     private void initToolbar() {
         changeToolbar(
-                getString(R.string.home),
+                getString(R.string.app_name),
                 R.drawable.ic_menu_white_24dp,
                 view -> binding.drawerLayout.openDrawer(GravityCompat.START)
         );
