@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -16,88 +15,362 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <me.grantland.widget.AutofitTextView
-            android:id="@+id/pocket_money"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:maxLines="1"
-            android:paddingBottom="16dp"
-            android:text='@{"$" + String.valueOf(userInfo.assets.get(0).value)}'
-            android:textColor="@color/white"
-            android:textSize="60sp"
-            tools:text="4500 moe" />
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="4">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/transaction_card"
-                style="@style/MyCardView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#97d4d9">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="4dp"
+                android:weightSum="14">
 
-                <ImageView
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+                <TextView
+                    android:id="@+id/recommend_artist_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:padding="8dp"
+                    android:text="おすすめのアーティスト" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/rights_card"
+                    style="@style/MyCardView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/money" />
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="@color/blue600">
 
-            </android.support.v7.widget.CardView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/rights_card"
-                style="@style/MyCardView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#fffbca">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/artist_image_1"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/ic_mimori_suzuko" />
 
-                <ImageView
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/artist_image_1"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:id="@+id/artist_name_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="三森すずこ"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/artist_description_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="一番好きな声優さんです！"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/badge_card"
+                    style="@style/MyCardView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/rights" />
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="@color/grey200">
 
-            </android.support.v7.widget.CardView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/badge_card"
-                style="@style/MyCardView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#d7dd97">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/artist_image_2"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/ic_choucho" />
 
-                <ImageView
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/artist_image_2"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:id="@+id/artist_name_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="Choucho"
+                                android:textColor="@color/grey600" />
+
+                            <TextView
+                                android:id="@+id/artist_description_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="素敵な歌声を奏でるLantisの星☆"
+                                android:textColor="@color/grey600" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+                <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/badge_card"-->
+                <!--style="@style/MyCardView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--app:cardBackgroundColor="#d7dd97">-->
+
+                <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:scaleType="fitCenter"-->
+                <!--android:src="@drawable/badge" />-->
+
+                <!--</android.support.v7.widget.CardView>-->
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/transaction_history_card"
+                    style="@style/MyCardView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/badge" />
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="#fbfbe7">
 
-            </android.support.v7.widget.CardView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/transaction_history_card"
-                style="@style/MyCardView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="#fbfbe7">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/artist_image_3"
+                            android:layout_width="96dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/ic_uehara" />
 
-                <ImageView
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@id/artist_image_3"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:id="@+id/artist_name_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="上原ひろみ"
+                                android:textColor="@color/grey600" />
+
+                            <TextView
+                                android:id="@+id/artist_description_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="アメリカ在住のジャズピアニスト"
+                                android:textColor="@color/grey600" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/latest_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:padding="8dp"
+                    android:text="直近のライブ" />
+
+                <android.support.v7.widget.CardView
+                    style="@style/MyCardView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/transaction" />
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="#fbfbe7">
 
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/suzuko_funfun" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="ふぁんふぁん"
+                                android:textColor="@color/primary_text" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="三森すずこ"
+                                android:textColor="@color/primary_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/MyCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="#fbfbe7">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/suzuko_funfun" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="ふぁんふぁん"
+                                android:textColor="@color/primary_text" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="三森すずこ"
+                                android:textColor="@color/primary_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/MyCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="#fbfbe7">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/suzuko_funfun" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="ふぁんふぁん"
+                                android:textColor="@color/primary_text" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="三森すずこ"
+                                android:textColor="@color/primary_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/live_card"
+                    style="@style/MyCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    app:cardBackgroundColor="#fbfbe7">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/suzuko_funfun" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/live_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="ふぁんふぁん"
+                                android:textColor="@color/primary_text" />
+
+                            <TextView
+                                android:id="@+id/artist_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="三森すずこ"
+                                android:textColor="@color/primary_text" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </layout>

@@ -3,26 +3,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
-
-        <me.grantland.widget.AutofitTextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="32dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="@string/right_title"
-            android:textColor="@color/colorPrimary"
-            android:textSize="40sp" />
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/image_view_receipt_qr_code"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            android:layout_below="@id/title"
-            android:layout_centerInParent="true" />
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/suzuko_funfun" />
+
+        <TextView
+            android:id="@+id/live_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
     </RelativeLayout>
 </layout>
